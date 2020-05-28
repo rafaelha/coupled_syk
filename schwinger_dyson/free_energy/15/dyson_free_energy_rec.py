@@ -11,7 +11,7 @@ import sys
 import pickle
 from scipy.stats import linregress
 
-mus = np.linspace(0, 0.2, 80)
+mus = np.linspace(0, 0.2, 64)
 etas = [0, 1, 0.1, 0.2, 0.5, 0.7, 0.8,  0.9, 0.95, 0.99]
 
 idx = int(sys.argv[1])
