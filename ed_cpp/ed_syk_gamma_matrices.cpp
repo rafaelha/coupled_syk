@@ -275,6 +275,7 @@ int main()
 	vecs_syk = eigensolver.eigenvectors();
 	toc();
 
+
 	cout << endl << "Computing lowest eigenvalue of coupled SYKs... ";
 	eigs();
 	toc();
