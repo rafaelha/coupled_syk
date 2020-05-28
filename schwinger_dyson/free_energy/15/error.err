@@ -110,3 +110,21 @@ dyson_free_energy_rec.py:187: ComplexWarning: Casting complex values to real dis
   SLLw[1:N:2], SRRw[1:N:2], SLRw[1:N:2], iw, imu)
 dyson_free_energy_rec.py:187: ComplexWarning: Casting complex values to real discards the imaginary part
   SLLw[1:N:2], SRRw[1:N:2], SLRw[1:N:2], iw, imu)
+dyson_free_energy_rec.py:187: ComplexWarning: Casting complex values to real discards the imaginary part
+  SLLw[1:N:2], SRRw[1:N:2], SLRw[1:N:2], iw, imu)
+dyson_free_energy_rec.py:187: ComplexWarning: Casting complex values to real discards the imaginary part
+  SLLw[1:N:2], SRRw[1:N:2], SLRw[1:N:2], iw, imu)
+dyson_free_energy_rec.py:187: ComplexWarning: Casting complex values to real discards the imaginary part
+  SLLw[1:N:2], SRRw[1:N:2], SLRw[1:N:2], iw, imu)
+dyson_free_energy_rec.py:187: ComplexWarning: Casting complex values to real discards the imaginary part
+  SLLw[1:N:2], SRRw[1:N:2], SLRw[1:N:2], iw, imu)
+dyson_free_energy_rec.py:187: ComplexWarning: Casting complex values to real discards the imaginary part
+  SLLw[1:N:2], SRRw[1:N:2], SLRw[1:N:2], iw, imu)
+dyson_free_energy_rec.py:187: ComplexWarning: Casting complex values to real discards the imaginary part
+  SLLw[1:N:2], SRRw[1:N:2], SLRw[1:N:2], iw, imu)
+dyson_free_energy_rec.py:187: ComplexWarning: Casting complex values to real discards the imaginary part
+  SLLw[1:N:2], SRRw[1:N:2], SLRw[1:N:2], iw, imu)
+dyson_free_energy_rec.py:187: ComplexWarning: Casting complex values to real discards the imaginary part
+  SLLw[1:N:2], SRRw[1:N:2], SLRw[1:N:2], iw, imu)
+dyson_free_energy_rec.py:54: RuntimeWarning: divide by zero encountered in log
+  return np.linalg.norm(np.log(np.abs(a[z]))-np.log(np.abs(b[z])))/N

@@ -274,6 +274,6 @@ for k in np.arange(len(etas)):
             'x': x}
 
 
-    f1 = open(str(idx) + '_' + str(k) + '.pickle', 'ab')
+    f1 = open(str(idx) + '.pickle', 'ab')
     pickle.dump(res, f1)
     f1.close()
