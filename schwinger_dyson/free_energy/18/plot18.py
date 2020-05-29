@@ -31,13 +31,13 @@ if len(res)==0:
     load()
 
 
-etas = [0, 1, 0.1, 0.2, 0.5, 0.7, 0.8,  0.9, 0.95, 0.99]
+etas = [0, 1, 0.99, 0.98, 1.1, 0.97, 0.95, 0.9, 0.85, 0.8]
 etas = np.sort(etas)
 for i in np.arange(len(etas)):
     eta = etas[i]
     mus = np.linspace(0,0.2,64)
 
-    r = 200
+    r = 500
     phase = np.ones((len(mus), r))*-1
 
     for x in res:
@@ -55,7 +55,7 @@ for i in np.arange(len(etas)):
             t2 = T[turn:]
             f2 = F[turn:]
 
-            t = np.linspace(0.0007,0.079, r)
+            t = np.linspace(0.0025,0.079, r)
             i1 = interp1d(t1,f1)
             i2 = interp1d(t2,f2)
 
@@ -69,4 +69,5 @@ for i in np.arange(len(etas)):
     plt.xlabel('$T$')
     plt.ylabel('$\mu$')
     plt.title(f'$\eta={eta}$')
+    plt.xlim(0,0.08)
     plt.savefig(f'00_eta_{i}.pdf')
