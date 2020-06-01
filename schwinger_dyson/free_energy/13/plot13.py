@@ -30,12 +30,12 @@ if len(res)==0:
     print('loading data...')
     load()
 
-r = 200
-etas = [1]
+r = 400
+etas = [0]
 etas = np.sort(etas)
 for i in np.arange(len(etas)):
     eta = etas[i]
-    mus = np.linspace(0, 0.15, 64)
+    mus = np.linspace(0, 0.2, 64)
 
     phase = np.ones((len(mus), r))*(-1)
 
