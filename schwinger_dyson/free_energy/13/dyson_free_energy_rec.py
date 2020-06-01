@@ -71,7 +71,7 @@ for k in np.arange(len(etas)):
         return -(1/beta) * FE
 
     J = 1  # intra-SYK coupling
-    N = 2**18  # number of frequency points (points in Patel's code is N/2)
+    N = 2**13  # number of frequency points (points in Patel's code is N/2)
     total_iteration = 900  # number of iterations for each run
     x = 0.03  # mixing of consecutive iterations. (0 means no mixing)
 
