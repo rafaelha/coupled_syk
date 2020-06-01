@@ -72,7 +72,7 @@ for k in np.arange(len(etas)):
 
     J = 1  # intra-SYK coupling
     N = 2**13  # number of frequency points (points in Patel's code is N/2)
-    total_iteration = 900  # number of iterations for each run
+    total_iteration = 3000  # number of iterations for each run
     x = 0.03  # mixing of consecutive iterations. (0 means no mixing)
 
     # Initialize G
@@ -182,7 +182,7 @@ for k in np.arange(len(etas)):
             GLRt[:N//2] = 0.5 * (GLRt[:N//2] + np.flip(GLRt[N//2:]))
             GLRt[N//2:] = np.flip(GLRt[:N//2])
 
-            print(i)
+            # print(i)
 
         F = freeenergy(GLLw[1:N:2], GRRw[1:N:2], GLRw[1:N:2],
                     SLLw[1:N:2], SRRw[1:N:2], SLRw[1:N:2], iw, imu)
