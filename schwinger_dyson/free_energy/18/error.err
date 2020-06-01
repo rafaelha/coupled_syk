@@ -32,3 +32,97 @@ dyson_free_energy_rec.py:54: RuntimeWarning: divide by zero encountered in log
   return np.linalg.norm(np.log(np.abs(a[z]))-np.log(np.abs(b[z])))/N
 dyson_free_energy_rec.py:54: RuntimeWarning: divide by zero encountered in log
   return np.linalg.norm(np.log(np.abs(a[z]))-np.log(np.abs(b[z])))/N
+dyson_free_energy_rec.py:54: RuntimeWarning: divide by zero encountered in log
+  return np.linalg.norm(np.log(np.abs(a[z]))-np.log(np.abs(b[z])))/N
+dyson_free_energy_rec.py:54: RuntimeWarning: divide by zero encountered in log
+  return np.linalg.norm(np.log(np.abs(a[z]))-np.log(np.abs(b[z])))/N
+dyson_free_energy_rec.py:54: RuntimeWarning: divide by zero encountered in log
+  return np.linalg.norm(np.log(np.abs(a[z]))-np.log(np.abs(b[z])))/N
+dyson_free_energy_rec.py:54: RuntimeWarning: divide by zero encountered in log
+  return np.linalg.norm(np.log(np.abs(a[z]))-np.log(np.abs(b[z])))/N
+dyson_free_energy_rec.py:54: RuntimeWarning: divide by zero encountered in log
+  return np.linalg.norm(np.log(np.abs(a[z]))-np.log(np.abs(b[z])))/N
+dyson_free_energy_rec.py:54: RuntimeWarning: divide by zero encountered in log
+  return np.linalg.norm(np.log(np.abs(a[z]))-np.log(np.abs(b[z])))/N
+dyson_free_energy_rec.py:54: RuntimeWarning: divide by zero encountered in log
+  return np.linalg.norm(np.log(np.abs(a[z]))-np.log(np.abs(b[z])))/N
+dyson_free_energy_rec.py:54: RuntimeWarning: divide by zero encountered in log
+  return np.linalg.norm(np.log(np.abs(a[z]))-np.log(np.abs(b[z])))/N
+dyson_free_energy_rec.py:54: RuntimeWarning: divide by zero encountered in log
+  return np.linalg.norm(np.log(np.abs(a[z]))-np.log(np.abs(b[z])))/N
+dyson_free_energy_rec.py:54: RuntimeWarning: divide by zero encountered in log
+  return np.linalg.norm(np.log(np.abs(a[z]))-np.log(np.abs(b[z])))/N
+dyson_free_energy_rec.py:54: RuntimeWarning: divide by zero encountered in log
+  return np.linalg.norm(np.log(np.abs(a[z]))-np.log(np.abs(b[z])))/N
+dyson_free_energy_rec.py:54: RuntimeWarning: divide by zero encountered in log
+  return np.linalg.norm(np.log(np.abs(a[z]))-np.log(np.abs(b[z])))/N
+dyson_free_energy_rec.py:54: RuntimeWarning: divide by zero encountered in log
+  return np.linalg.norm(np.log(np.abs(a[z]))-np.log(np.abs(b[z])))/N
+dyson_free_energy_rec.py:54: RuntimeWarning: divide by zero encountered in log
+  return np.linalg.norm(np.log(np.abs(a[z]))-np.log(np.abs(b[z])))/N
+dyson_free_energy_rec.py:54: RuntimeWarning: divide by zero encountered in log
+  return np.linalg.norm(np.log(np.abs(a[z]))-np.log(np.abs(b[z])))/N
+dyson_free_energy_rec.py:54: RuntimeWarning: divide by zero encountered in log
+  return np.linalg.norm(np.log(np.abs(a[z]))-np.log(np.abs(b[z])))/N
+dyson_free_energy_rec.py:54: RuntimeWarning: divide by zero encountered in log
+  return np.linalg.norm(np.log(np.abs(a[z]))-np.log(np.abs(b[z])))/N
+dyson_free_energy_rec.py:54: RuntimeWarning: divide by zero encountered in log
+  return np.linalg.norm(np.log(np.abs(a[z]))-np.log(np.abs(b[z])))/N
+dyson_free_energy_rec.py:54: RuntimeWarning: divide by zero encountered in log
+  return np.linalg.norm(np.log(np.abs(a[z]))-np.log(np.abs(b[z])))/N
+dyson_free_energy_rec.py:54: RuntimeWarning: divide by zero encountered in log
+  return np.linalg.norm(np.log(np.abs(a[z]))-np.log(np.abs(b[z])))/N
+dyson_free_energy_rec.py:54: RuntimeWarning: divide by zero encountered in log
+  return np.linalg.norm(np.log(np.abs(a[z]))-np.log(np.abs(b[z])))/N
+dyson_free_energy_rec.py:54: RuntimeWarning: divide by zero encountered in log
+  return np.linalg.norm(np.log(np.abs(a[z]))-np.log(np.abs(b[z])))/N
+dyson_free_energy_rec.py:54: RuntimeWarning: divide by zero encountered in log
+  return np.linalg.norm(np.log(np.abs(a[z]))-np.log(np.abs(b[z])))/N
+dyson_free_energy_rec.py:54: RuntimeWarning: divide by zero encountered in log
+  return np.linalg.norm(np.log(np.abs(a[z]))-np.log(np.abs(b[z])))/N
+dyson_free_energy_rec.py:54: RuntimeWarning: divide by zero encountered in log
+  return np.linalg.norm(np.log(np.abs(a[z]))-np.log(np.abs(b[z])))/N
+dyson_free_energy_rec.py:54: RuntimeWarning: divide by zero encountered in log
+  return np.linalg.norm(np.log(np.abs(a[z]))-np.log(np.abs(b[z])))/N
+dyson_free_energy_rec.py:54: RuntimeWarning: divide by zero encountered in log
+  return np.linalg.norm(np.log(np.abs(a[z]))-np.log(np.abs(b[z])))/N
+dyson_free_energy_rec.py:54: RuntimeWarning: divide by zero encountered in log
+  return np.linalg.norm(np.log(np.abs(a[z]))-np.log(np.abs(b[z])))/N
+dyson_free_energy_rec.py:54: RuntimeWarning: divide by zero encountered in log
+  return np.linalg.norm(np.log(np.abs(a[z]))-np.log(np.abs(b[z])))/N
+dyson_free_energy_rec.py:54: RuntimeWarning: divide by zero encountered in log
+  return np.linalg.norm(np.log(np.abs(a[z]))-np.log(np.abs(b[z])))/N
+dyson_free_energy_rec.py:54: RuntimeWarning: divide by zero encountered in log
+  return np.linalg.norm(np.log(np.abs(a[z]))-np.log(np.abs(b[z])))/N
+dyson_free_energy_rec.py:54: RuntimeWarning: divide by zero encountered in log
+  return np.linalg.norm(np.log(np.abs(a[z]))-np.log(np.abs(b[z])))/N
+dyson_free_energy_rec.py:54: RuntimeWarning: divide by zero encountered in log
+  return np.linalg.norm(np.log(np.abs(a[z]))-np.log(np.abs(b[z])))/N
+dyson_free_energy_rec.py:54: RuntimeWarning: divide by zero encountered in log
+  return np.linalg.norm(np.log(np.abs(a[z]))-np.log(np.abs(b[z])))/N
+dyson_free_energy_rec.py:54: RuntimeWarning: divide by zero encountered in log
+  return np.linalg.norm(np.log(np.abs(a[z]))-np.log(np.abs(b[z])))/N
+dyson_free_energy_rec.py:54: RuntimeWarning: divide by zero encountered in log
+  return np.linalg.norm(np.log(np.abs(a[z]))-np.log(np.abs(b[z])))/N
+dyson_free_energy_rec.py:54: RuntimeWarning: divide by zero encountered in log
+  return np.linalg.norm(np.log(np.abs(a[z]))-np.log(np.abs(b[z])))/N
+dyson_free_energy_rec.py:54: RuntimeWarning: divide by zero encountered in log
+  return np.linalg.norm(np.log(np.abs(a[z]))-np.log(np.abs(b[z])))/N
+dyson_free_energy_rec.py:54: RuntimeWarning: divide by zero encountered in log
+  return np.linalg.norm(np.log(np.abs(a[z]))-np.log(np.abs(b[z])))/N
+dyson_free_energy_rec.py:54: RuntimeWarning: divide by zero encountered in log
+  return np.linalg.norm(np.log(np.abs(a[z]))-np.log(np.abs(b[z])))/N
+dyson_free_energy_rec.py:54: RuntimeWarning: divide by zero encountered in log
+  return np.linalg.norm(np.log(np.abs(a[z]))-np.log(np.abs(b[z])))/N
+dyson_free_energy_rec.py:54: RuntimeWarning: divide by zero encountered in log
+  return np.linalg.norm(np.log(np.abs(a[z]))-np.log(np.abs(b[z])))/N
+dyson_free_energy_rec.py:54: RuntimeWarning: divide by zero encountered in log
+  return np.linalg.norm(np.log(np.abs(a[z]))-np.log(np.abs(b[z])))/N
+dyson_free_energy_rec.py:54: RuntimeWarning: divide by zero encountered in log
+  return np.linalg.norm(np.log(np.abs(a[z]))-np.log(np.abs(b[z])))/N
+dyson_free_energy_rec.py:54: RuntimeWarning: divide by zero encountered in log
+  return np.linalg.norm(np.log(np.abs(a[z]))-np.log(np.abs(b[z])))/N
+dyson_free_energy_rec.py:54: RuntimeWarning: divide by zero encountered in log
+  return np.linalg.norm(np.log(np.abs(a[z]))-np.log(np.abs(b[z])))/N
+dyson_free_energy_rec.py:54: RuntimeWarning: divide by zero encountered in log
+  return np.linalg.norm(np.log(np.abs(a[z]))-np.log(np.abs(b[z])))/N
