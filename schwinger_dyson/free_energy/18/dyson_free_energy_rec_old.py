@@ -11,19 +11,11 @@ import sys
 import pickle
 from scipy.stats import linregress
 
-mus = np.linspace(0, 0.05, 64)
-etas = [1, 0.99, 0.95]
+mus = np.linspace(0, 0.15, 64)
+etas = [1]
 
 idx = int(sys.argv[1])
 mu = mus[idx]
-
-J = 1  # intra-SYK coupling
-N = 2**19  # number of frequency points (points in Patel's code is N/2)
-total_iteration = 600  # number of iterations for each run
-x = 0.03  # mixing of consecutive iterations. (0 means no mixing)
-
-temp = np.linspace(0.01,0.000001,60)
-ttemp = np.concatenate([temp, np.flip(temp)])
 
 plot = False
 
@@ -61,6 +53,16 @@ for k in np.arange(len(etas)):
     def diff(a, b):
         return np.linalg.norm(np.log(np.abs(a[z]))-np.log(np.abs(b[z])))/N
 
+    def freeenergy_old(GLLiw, GRRiw, GLRiw, SLLiw, SRRiw, SLRiw, freqi):
+        f = ((1+eta)/(1-eta))**2
+        FE = np.log(2.0) + \
+            (1.0/2.0)*np.sum(np.log((1.0 + SLLiw * SRRiw/(-1.0j*freqi/tstep)**2 +
+                                    (SLLiw + SRRiw)/(-1.0j*freqi/tstep) -
+                                    (SLRiw/(freqi/tstep))**2))) \
+            + 3.0/4.0 * np.sum(0.5 * (SLLiw * GLLiw) * f
+                            + 0.5 * (SRRiw * GRRiw) / f - (SLRiw * GLRiw))
+        return -(1/beta) * FE
+
     def freeenergy(GLLiw, GRRiw, GLRiw, SLLiw, SRRiw, SLRiw, iw, imu):
         FE = np.log(2.0) + \
             1.0/2.0 * np.sum(np.log( (1- SRRiw/iw)*(1-SLLiw/iw) - (imu - SLRiw)*(imu - SLRiw)/(iw*iw*(-1)) )) + \
@@ -68,6 +70,10 @@ for k in np.arange(len(etas)):
 
         return -(1/beta) * FE
 
+    J = 1  # intra-SYK coupling
+    N = 2**18  # number of frequency points (points in Patel's code is N/2)
+    total_iteration = 900  # number of iterations for each run
+    x = 0.03  # mixing of consecutive iterations. (0 means no mixing)
 
     # Initialize G
     ar = N/2 - 0.5 - np.arange(N)
@@ -81,6 +87,24 @@ for k in np.arange(len(etas)):
     GLRw = np.zeros(N, dtype='complex')
 
 
+    T = 0.08
+
+    lT = 0.08
+    lF = 0.02
+
+    smax = 0.04
+    savg = 0.015
+    Tmin = 5e-5
+
+    Tend = 0.08
+
+    dT = 0.001
+
+    sign = -1
+    TURN = 0
+
+    GO = True
+
     fstep = 2*np.pi/N
     freq = np.zeros(N-1)
     for i in range(int(N/2)):
@@ -90,6 +114,8 @@ for k in np.arange(len(etas)):
     for i in range(int(N/2), N-1):
         freq[i] = (i+1-N)*fstep
 
+    temp = np.linspace(0.04,0.00001,200)
+    ttemp = np.concatenate([temp, np.flip(temp)])
     for T in ttemp:
         beta = 1/T
         omegacutoff = N*(np.pi)/beta  # Max cut-off frequency,
@@ -137,9 +163,9 @@ for k in np.arange(len(etas)):
             GLRtn = ift(GLRw)
 
             # compare new iteration to old one
-            # dRR[i] = diff(GRRt, GRRtn)
-            # dLL[i] = diff(GLLt, GLLtn)
-            # dLR[i] = diff(GLRt, GLRtn)
+            dRR[i] = diff(GRRt, GRRtn)
+            dLL[i] = diff(GLLt, GLLtn)
+            dLR[i] = diff(GLRt, GLRtn)
 
             # update with newest iteration
             GRRt = (1-x)*GRRt + x*GRRtn
@@ -156,17 +182,12 @@ for k in np.arange(len(etas)):
             GLRt[:N//2] = 0.5 * (GLRt[:N//2] + np.flip(GLRt[N//2:]))
             GLRt[N//2:] = np.flip(GLRt[:N//2])
 
-            # print(i)
+            print(i)
 
         F = freeenergy(GLLw[1:N:2], GRRw[1:N:2], GLRw[1:N:2],
                     SLLw[1:N:2], SRRw[1:N:2], SLRw[1:N:2], iw, imu)
         FF.append(F)
         TT.append(T)
-
-
-        GLLt0 = np.copy(GLLt)
-        GRRt0 = np.copy(GRRt)
-        GLRt0 = np.copy(GLRt)
 
         if plot:
             plt.figure('free energy')
