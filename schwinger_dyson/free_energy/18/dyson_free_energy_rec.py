@@ -33,11 +33,7 @@ for k in np.arange(len(etas)):
     eta = etas[k]
 
     FF = []
-    FFleft = []
-    FFright = []
     TT = []
-    TTleft = []
-    TTright = []
 
     def handle_close(evt):
         return

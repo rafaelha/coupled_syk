@@ -21,10 +21,12 @@ using namespace Spectra;
 typedef SparseMatrix<complex<double>> sm;
 vector<sm> s;
 
-#define N 32 // Majorana fermions in total const double J = 1;
-const double mu = 0.5;
+const int N = 32; // Majorana fermions in total
 const double J = 1.0;
+const int num_evals = 12;
 const int dimSYK = (1 << N / 4);
+double eta;
+double mu;
 
 int pp[N / 2][N / 4];
 const int g_dim = 1 << N / 4;
@@ -39,6 +41,7 @@ sm HLR(G_dim, G_dim);
 VectorXcd gs;
 VectorXd evalues;
 VectorXd ev_syk;
+VectorXd ev_syk_test;
 MatrixXcd vecs_syk;
 
 MatrixXcd overlap_data;
@@ -65,6 +68,33 @@ void define_pauli()
 	s.push_back(sm2);
 	s.push_back(sm3);
 	//cout << s[0] << endl << s[1] << endl << s[2] << endl << s[3] << endl;
+}
+template<typename T>
+std::vector<double> linspace(T start_in, T end_in, int num_in)
+{
+
+	std::vector<double> linspaced;
+
+	double start = static_cast<double>(start_in);
+	double end = static_cast<double>(end_in);
+	double num = static_cast<double>(num_in);
+
+	if (num == 0) { return linspaced; }
+	if (num == 1)
+	{
+		linspaced.push_back(start);
+		return linspaced;
+	}
+
+	double delta = (end - start) / (num - 1);
+
+	for (int i = 0; i < num - 1; ++i)
+	{
+		linspaced.push_back(start + delta * i);
+	}
+	linspaced.push_back(end); // I want to ensure that start and end
+							  // are exactly the same as the input
+	return linspaced;
 }
 void construct_pp()
 {
@@ -170,7 +200,7 @@ void buildH()
 	}
 	h *= gamma * J / 4.0;
 	HLR = (left_id(h) - right_id(h));
-	H = (right_id(h) + right_id(h)) + 1i / 2.0 * mu * Hint;
+	H = (left_id(h) * (1 + eta) + right_id(h) * (1-eta)) + 1i / 2.0 * mu * Hint;
 }
 void eigs()
 {
@@ -187,7 +217,7 @@ void eigs()
 	// Construct matrix operation object using the wrapper class DenseSymMatProd
 	SparseSymMatProd<double> op(H_real);
 	// Construct eigen solver object, requesting the largest three eigenvalues
-	SymEigsSolver< double, SMALLEST_ALGE, SparseSymMatProd<double> > eigs(&op, 1, 6);
+	SymEigsSolver< double, SMALLEST_ALGE, SparseSymMatProd<double> > eigs(&op, num_evals, 6*num_evals);
 	// Initialize and compute
 	eigs.init();
 	int nconv = eigs.compute();
@@ -197,10 +227,14 @@ void eigs()
 	evalues = eigs.eigenvalues();
 	MatrixXd evecs = eigs.eigenvectors();
 
-	VectorXd u = evecs(seq(0, (last + 1) / 2 - 1), 0);
-	VectorXd v = evecs(seq((last + 1) / 2, last), 0);
+	VectorXd u = evecs(seq(0, (last + 1) / 2 - 1), last);
+	VectorXd v = evecs(seq((last + 1) / 2, last), last);
 	gs = u + 1i * v;
 	gs = gs / gs.norm();
+
+	//SelfAdjointEigenSolver<MatrixXcd> eigensolver(H, ComputeEigenvectors);
+	//ev_syk_test = eigensolver.eigenvalues();
+	//cout << ev_syk_test;
 }
 void overlap()
 {
@@ -221,6 +255,12 @@ void overlap()
 		//cout << endl;
 	}
 }
+string d_tostr(double x)
+{
+	string str = to_string(x);
+	replace(str.begin(), str.end(), '.', '_');
+	return str;
+}
 void _save(MatrixXd src, string pathAndName)
 {
 	ofstream stream(pathAndName, ios::out | ios::trunc);
@@ -228,6 +268,7 @@ void _save(MatrixXd src, string pathAndName)
 	{
 		stream << "n=" << N << "\n";
 		stream << "J=" << J << "\n";
+		stream << "eta=" << eta << "\n";
 		stream << "mu=" << mu << "\n";
 		stream << src.format(CSVFormat) << "\n";
 		stream.close();  // close file
@@ -238,8 +279,13 @@ void _save(MatrixXd src, string pathAndName)
 	}
 }
 
-int main()
+int main(int argc, char** argv)
 {
+	eta = 0;
+	mu = 0.2;
+	if (argc > 1) eta = atof(argv[1]);
+	if (argc > 2) mu = atof(argv[2]);
+
 	id.setIdentity();
 	define_pauli();
 	construct_pp();
@@ -250,6 +296,7 @@ int main()
 	cout << "n = " << N << endl;
 	cout << "J = " << J << endl;
 	cout << "mu = " << mu << endl;
+	cout << "eta = " << eta << endl;
 	cout << "Beginning to construct gamma matrices... ";
 	for (int i = 0;i < N / 2; i++)
 	{
@@ -287,12 +334,10 @@ int main()
 
 	overlap();
 
-	/*
-	_save(overlap_data.real(), to_string(N) + "n_overlap_real.txt");
-	_save((-1i * overlap_data).real(), to_string(N) + "n_overlap_imag.txt");
-	_save(HLRgs.real(), to_string(N) + "n_HLRgs_real.txt");
-	_save((-1i * HLRgs).real(), to_string(N) + "n_HLRgs_imag.txt");
-	_save(ev_syk.real(), to_string(N) + "n_ev_syk.txt");
-	*/
-
+	_save(overlap_data.real(), "data\\" + to_string(N) + "n" + d_tostr(eta) + "eta" + d_tostr(mu) + "mu_overlap_real.txt");
+	_save((-1i * overlap_data).real(), "data\\" + to_string(N) + "n" + d_tostr(eta) + "eta" + d_tostr(mu) + "mu_overlap_imag.txt");
+	_save(evalues, "data\\" + to_string(N) + "n" + d_tostr(eta) + "eta" + d_tostr(mu) + "mu_energies.txt");
+	//_save(HLRgs.real(), to_string(N) + "n_HLRgs_real.txt");
+	//_save((-1i * HLRgs).real(), to_string(N) + "n_HLRgs_imag.txt");
+	//_save(ev_syk.real(), to_string(N) + "n_ev_syk.txt");
 }
