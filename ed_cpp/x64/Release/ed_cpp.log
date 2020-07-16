@@ -1,0 +1,109 @@
+﻿  ed_syk_gamma_matrices.cpp
+C:\Users\rafae\Desktop\coupled_syk\ed_cpp\ed_syk_gamma_matrices.cpp(223,12): warning C4244: 'initializing': conversion from 'Spectra::SymEigsBase<Scalar,7,OpType,Spectra::IdentityBOp>::Index' to 'int', possible loss of data
+          with
+          [
+              Scalar=double,
+              OpType=Spectra::SparseSymMatProd<double,1,0,int>
+          ]
+C:\Program Files\spectra-0.8.1\include\Spectra\SymEigsBase.h(195,30): warning C4244: 'argument': conversion from 'const Spectra::SymEigsBase<Scalar,7,OpType,Spectra::IdentityBOp>::Index' to 'int', possible loss of data
+          with
+          [
+              Scalar=double,
+              OpType=Spectra::SparseSymMatProd<double,1,0,int>
+          ]
+C:\Program Files\spectra-0.8.1\include\Spectra\SymEigsBase.h(193): message : while compiling class template member function 'void Spectra::SymEigsBase<Scalar,7,OpType,Spectra::IdentityBOp>::sort_ritzpair(int)'
+          with
+          [
+              Scalar=double,
+              OpType=Spectra::SparseSymMatProd<double,1,0,int>
+          ]
+C:\Program Files\spectra-0.8.1\include\Spectra\SymEigsBase.h(349): message : see reference to function template instantiation 'void Spectra::SymEigsBase<Scalar,7,OpType,Spectra::IdentityBOp>::sort_ritzpair(int)' being compiled
+          with
+          [
+              Scalar=double,
+              OpType=Spectra::SparseSymMatProd<double,1,0,int>
+          ]
+C:\Program Files\spectra-0.8.1\include\Spectra\SymEigsSolver.h(143): message : see reference to class template instantiation 'Spectra::SymEigsBase<Scalar,7,OpType,Spectra::IdentityBOp>' being compiled
+          with
+          [
+              Scalar=double,
+              OpType=Spectra::SparseSymMatProd<double,1,0,int>
+          ]
+C:\Users\rafae\Desktop\coupled_syk\ed_cpp\ed_syk_gamma_matrices.cpp(220): message : see reference to class template instantiation 'Spectra::SymEigsSolver<double,7,Spectra::SparseSymMatProd<double,1,0,int>>' being compiled
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\VC\Tools\MSVC\14.24.28314\include\chrono(632): message : see reference to class template instantiation 'std::chrono::duration<double,std::ratio<1,1>>' being compiled
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\VC\Tools\MSVC\14.24.28314\include\chrono(178): message : see reference to class template instantiation 'std::chrono::duration<__int64,std::nano>' being compiled
+C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\VC\Tools\MSVC\14.24.28314\include\chrono(610): message : see reference to class template instantiation 'std::chrono::time_point<std::chrono::steady_clock,std::chrono::nanoseconds>' being compiled
+C:\Program Files\spectra-0.8.1\include\Spectra\SymEigsBase.h(204,30): warning C4244: 'argument': conversion from 'const Spectra::SymEigsBase<Scalar,7,OpType,Spectra::IdentityBOp>::Index' to 'int', possible loss of data
+          with
+          [
+              Scalar=double,
+              OpType=Spectra::SparseSymMatProd<double,1,0,int>
+          ]
+C:\Program Files\spectra-0.8.1\include\Spectra\SymEigsBase.h(210,30): warning C4244: 'argument': conversion from 'const Spectra::SymEigsBase<Scalar,7,OpType,Spectra::IdentityBOp>::Index' to 'int', possible loss of data
+          with
+          [
+              Scalar=double,
+              OpType=Spectra::SparseSymMatProd<double,1,0,int>
+          ]
+C:\Program Files\spectra-0.8.1\include\Spectra\SymEigsBase.h(216,30): warning C4244: 'argument': conversion from 'const Spectra::SymEigsBase<Scalar,7,OpType,Spectra::IdentityBOp>::Index' to 'int', possible loss of data
+          with
+          [
+              Scalar=double,
+              OpType=Spectra::SparseSymMatProd<double,1,0,int>
+          ]
+C:\Program Files\spectra-0.8.1\include\Spectra\SymEigsBase.h(152,35): warning C4244: 'argument': conversion from 'Eigen::EigenBase<Derived>::Index' to 'int', possible loss of data
+          with
+          [
+              Derived=Eigen::Matrix<double,-1,1,0,-1,1>
+          ]
+C:\Program Files\spectra-0.8.1\include\Spectra\SymEigsBase.h(147): message : while compiling class template member function 'void Spectra::SymEigsBase<Scalar,7,OpType,Spectra::IdentityBOp>::retrieve_ritzpair(void)'
+          with
+          [
+              Scalar=double,
+              OpType=Spectra::SparseSymMatProd<double,1,0,int>
+          ]
+C:\Program Files\spectra-0.8.1\include\Spectra\SymEigsBase.h(336): message : see reference to function template instantiation 'void Spectra::SymEigsBase<Scalar,7,OpType,Spectra::IdentityBOp>::retrieve_ritzpair(void)' being compiled
+          with
+          [
+              Scalar=double,
+              OpType=Spectra::SparseSymMatProd<double,1,0,int>
+          ]
+C:\Program Files\spectra-0.8.1\include\Spectra\LinAlg\Arnoldi.h(70,43): warning C4244: 'argument': conversion from 'Spectra::Arnoldi<Scalar,ArnoldiOpType>::Index' to 'unsigned long', possible loss of data
+          with
+          [
+              Scalar=double,
+              ArnoldiOpType=Spectra::ArnoldiOp<double,Spectra::SparseSymMatProd<double,1,0,int>,Spectra::IdentityBOp>
+          ]
+C:\Program Files\spectra-0.8.1\include\Spectra\LinAlg\Arnoldi.h(62): message : while compiling class template member function 'void Spectra::Arnoldi<Scalar,ArnoldiOpType>::expand_basis(Eigen::Map<const Derived,0,Eigen::Stride<0,0>> &,const Spectra::Arnoldi<Scalar,ArnoldiOpType>::Index,Eigen::Matrix<double,-1,1,0,-1,1> &,Scalar &)'
+          with
+          [
+              Scalar=double,
+              ArnoldiOpType=Spectra::ArnoldiOp<double,Spectra::SparseSymMatProd<double,1,0,int>,Spectra::IdentityBOp>,
+              Derived=Eigen::Matrix<double,-1,-1,0,-1,-1>
+          ]
+C:\Program Files\spectra-0.8.1\include\Spectra\LinAlg\Lanczos.h(90): message : see reference to function template instantiation 'void Spectra::Arnoldi<Scalar,ArnoldiOpType>::expand_basis(Eigen::Map<const Derived,0,Eigen::Stride<0,0>> &,const Spectra::Arnoldi<Scalar,ArnoldiOpType>::Index,Eigen::Matrix<double,-1,1,0,-1,1> &,Scalar &)' being compiled
+          with
+          [
+              Scalar=double,
+              ArnoldiOpType=Spectra::ArnoldiOp<double,Spectra::SparseSymMatProd<double,1,0,int>,Spectra::IdentityBOp>,
+              Derived=Eigen::Matrix<double,-1,-1,0,-1,-1>
+          ]
+C:\Program Files\spectra-0.8.1\include\Spectra\LinAlg\Lanczos.h(29): message : see reference to class template instantiation 'Spectra::Arnoldi<Scalar,ArnoldiOpType>' being compiled
+          with
+          [
+              Scalar=double,
+              ArnoldiOpType=Spectra::ArnoldiOp<double,Spectra::SparseSymMatProd<double,1,0,int>,Spectra::IdentityBOp>
+          ]
+C:\Program Files\spectra-0.8.1\include\Spectra\SymEigsBase.h(69): message : see reference to class template instantiation 'Spectra::Lanczos<Scalar,Spectra::ArnoldiOp<Scalar,OpType,BOpType>>' being compiled
+          with
+          [
+              Scalar=double,
+              OpType=Spectra::SparseSymMatProd<double,1,0,int>,
+              BOpType=Spectra::IdentityBOp
+          ]
+  Generating code
+  3 of 10064 functions (<0.1%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    135 functions had inline decision re-evaluated but remain unchanged
+  Finished generating code
+  ed_cpp.vcxproj -> C:\Users\rafae\Desktop\coupled_syk\ed_cpp\x64\Release\ed_cpp.exe
