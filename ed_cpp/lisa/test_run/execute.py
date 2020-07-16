@@ -12,6 +12,6 @@ eta = etas[idx]
 
 for mu in mus:
     print(mu)
-    bashCommand = f"ed_cpp.exe {eta} {mu}"
+    bashCommand = f"./ed_cpp.exe {eta} {mu}"
     process = subprocess.Popen(bashCommand.split(), stdout=subprocess.PIPE)
     output, error = process.communicate()
