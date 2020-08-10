@@ -15,8 +15,7 @@ task_ID = int(os.environ.get('SLURM_ARRAY_TASK_ID', default=-1)) # task ID
 
 # T = 1000
 wmax = 1024
-wmax = 1024
-N = 2**20
+N = 2**10
 T = np.pi/wmax * N
 eta_conv = 1/T * 5
 J = 1
@@ -88,7 +87,7 @@ for eta in etas:
 
 
     # perform self-consistency equation
-    for i in np.arange(250):
+    for i in np.arange(60):
         nRR = dw * fft_(rhoRR * nf)
         nLL = dw * fft_(rhoLL * nf)
         nLR = dw * fft_(rhoLR * nf)
@@ -129,20 +128,25 @@ for eta in etas:
         rhoRR /= dw * np.sum(rhoRR, axis=0)
         rhoLL /= dw * np.sum(rhoLL, axis=0)
 
-        if i % 10 == 0 and x < 1e-9:
+        if i % 10 == 0 and x < 1e-7:
             break
 
     del rhoRR_
     del rhoLL_
     del rhoLR_
 
-    sel2 = np.logical_and(t>0, t*w_re<10*np.pi)
+    w_re = 4*mu**(2/3)/(2*np.pi)
+    sel2 = np.logical_and(t>=0, t*w_re<10*np.pi)
+    if mu == 0:
+        sel2 = np.logical_and(t>=0, t<np.max(t)/10)
     t = t[sel2]
     GRRg_t = (1/np.sqrt(N) * fft_(-1j * ( 1 - nf) * rhoRR))[sel2]
     GLLg_t = (1/np.sqrt(N) * fft_(-1j * ( 1 - nf) * rhoLL))[sel2]
     GLRg_t = (1/np.sqrt(N) * fft_(-1j * ( 1 - nf) * rhoLR))[sel2]
 
     sel = np.logical_and(w>=0, w<100*mu**(2/3))
+    if mu == 0:
+        sel = np.logical_and(w>=0, w<10)
     res = {
         'N': N,
         'wmax': wmax,
