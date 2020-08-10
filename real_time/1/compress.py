@@ -22,6 +22,7 @@ for f in files[0:1]:
 
     #%%
     mu = data['mu']
+    print('mu=',mu)
     # w = data['w']
     N = data['N']
     T = data['T']
@@ -60,6 +61,8 @@ for f in files[0:1]:
     rhoRR = data['rhoRR'][sel]
     rhoLL = data['rhoLL'][sel]
     rhoLR = data['rhoLR'][sel]
+
+    print(rhoRR[0:10])
 
 
     """
