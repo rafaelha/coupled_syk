@@ -14,7 +14,8 @@ def fft(x):
 
 files = glob.glob(f'*.pickle')
 
-for f in files:
+for f in files[0:1]:
+    f = '296453_0.pickle'
     print(f)
     reader = open(f,'rb')
     data = pickle.load(reader)
