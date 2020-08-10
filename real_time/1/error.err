@@ -1,0 +1,87 @@
+real_time_sd2.py:38: RuntimeWarning: overflow encountered in exp
+  return 1 / ( np.exp(eps * beta) + 1)
+real_time_sd2.py:38: RuntimeWarning: overflow encountered in exp
+  return 1 / ( np.exp(eps * beta) + 1)
+real_time_sd2.py:38: RuntimeWarning: overflow encountered in exp
+  return 1 / ( np.exp(eps * beta) + 1)
+real_time_sd2.py:38: RuntimeWarning: overflow encountered in exp
+  return 1 / ( np.exp(eps * beta) + 1)
+real_time_sd2.py:38: RuntimeWarning: overflow encountered in exp
+  return 1 / ( np.exp(eps * beta) + 1)
+real_time_sd2.py:38: RuntimeWarning: overflow encountered in exp
+  return 1 / ( np.exp(eps * beta) + 1)
+real_time_sd2.py:38: RuntimeWarning: overflow encountered in exp
+  return 1 / ( np.exp(eps * beta) + 1)
+real_time_sd2.py:38: RuntimeWarning: overflow encountered in exp
+  return 1 / ( np.exp(eps * beta) + 1)
+real_time_sd2.py:38: RuntimeWarning: overflow encountered in exp
+  return 1 / ( np.exp(eps * beta) + 1)
+real_time_sd2.py:38: RuntimeWarning: overflow encountered in exp
+  return 1 / ( np.exp(eps * beta) + 1)
+real_time_sd2.py:38: RuntimeWarning: overflow encountered in exp
+  return 1 / ( np.exp(eps * beta) + 1)
+real_time_sd2.py:38: RuntimeWarning: overflow encountered in exp
+  return 1 / ( np.exp(eps * beta) + 1)
+real_time_sd2.py:38: RuntimeWarning: overflow encountered in exp
+  return 1 / ( np.exp(eps * beta) + 1)
+real_time_sd2.py:38: RuntimeWarning: overflow encountered in exp
+  return 1 / ( np.exp(eps * beta) + 1)
+real_time_sd2.py:38: RuntimeWarning: overflow encountered in exp
+  return 1 / ( np.exp(eps * beta) + 1)
+real_time_sd2.py:38: RuntimeWarning: overflow encountered in exp
+  return 1 / ( np.exp(eps * beta) + 1)
+real_time_sd2.py:38: RuntimeWarning: overflow encountered in exp
+  return 1 / ( np.exp(eps * beta) + 1)
+real_time_sd2.py:38: RuntimeWarning: overflow encountered in exp
+  return 1 / ( np.exp(eps * beta) + 1)
+real_time_sd2.py:38: RuntimeWarning: overflow encountered in exp
+  return 1 / ( np.exp(eps * beta) + 1)
+real_time_sd2.py:38: RuntimeWarning: overflow encountered in exp
+  return 1 / ( np.exp(eps * beta) + 1)
+real_time_sd2.py:38: RuntimeWarning: overflow encountered in exp
+  return 1 / ( np.exp(eps * beta) + 1)
+real_time_sd2.py:38: RuntimeWarning: overflow encountered in exp
+  return 1 / ( np.exp(eps * beta) + 1)
+real_time_sd2.py:38: RuntimeWarning: overflow encountered in exp
+  return 1 / ( np.exp(eps * beta) + 1)
+real_time_sd2.py:38: RuntimeWarning: overflow encountered in exp
+  return 1 / ( np.exp(eps * beta) + 1)
+real_time_sd2.py:38: RuntimeWarning: overflow encountered in exp
+  return 1 / ( np.exp(eps * beta) + 1)
+real_time_sd2.py:38: RuntimeWarning: overflow encountered in exp
+  return 1 / ( np.exp(eps * beta) + 1)
+real_time_sd2.py:38: RuntimeWarning: overflow encountered in exp
+  return 1 / ( np.exp(eps * beta) + 1)
+real_time_sd2.py:38: RuntimeWarning: overflow encountered in exp
+  return 1 / ( np.exp(eps * beta) + 1)
+real_time_sd2.py:38: RuntimeWarning: overflow encountered in exp
+  return 1 / ( np.exp(eps * beta) + 1)
+real_time_sd2.py:38: RuntimeWarning: overflow encountered in exp
+  return 1 / ( np.exp(eps * beta) + 1)
+real_time_sd2.py:38: RuntimeWarning: overflow encountered in exp
+  return 1 / ( np.exp(eps * beta) + 1)
+real_time_sd2.py:38: RuntimeWarning: overflow encountered in exp
+  return 1 / ( np.exp(eps * beta) + 1)
+real_time_sd2.py:38: RuntimeWarning: overflow encountered in exp
+  return 1 / ( np.exp(eps * beta) + 1)
+slurmstepd: error: *** JOB 296511 ON node02 CANCELLED AT 2020-08-10T00:17:33 ***
+slurmstepd: error: *** JOB 296480 ON node27 CANCELLED AT 2020-08-10T00:17:33 ***
+slurmstepd: error: *** JOB 296478 ON node27 CANCELLED AT 2020-08-10T00:17:33 ***
+slurmstepd: error: *** JOB 296487 ON node19 CANCELLED AT 2020-08-10T00:17:33 ***
+slurmstepd: error: *** JOB 296489 ON node19 CANCELLED AT 2020-08-10T00:17:33 ***
+slurmstepd: error: *** JOB 296490 ON node19 CANCELLED AT 2020-08-10T00:17:33 ***
+slurmstepd: error: *** JOB 296488 ON node19 CANCELLED AT 2020-08-10T00:17:33 ***
+slurmstepd: error: *** JOB 296486 ON node19 CANCELLED AT 2020-08-10T00:17:33 ***
+slurmstepd: error: *** JOB 296485 ON node19 CANCELLED AT 2020-08-10T00:17:33 ***
+slurmstepd: error: *** JOB 296495 ON node21 CANCELLED AT 2020-08-10T00:17:33 ***
+slurmstepd: error: *** JOB 296501 ON node21 CANCELLED AT 2020-08-10T00:17:33 ***
+slurmstepd: error: *** JOB 296502 ON node21 CANCELLED AT 2020-08-10T00:17:33 ***
+slurmstepd: error: *** JOB 296499 ON node21 CANCELLED AT 2020-08-10T00:17:33 ***
+slurmstepd: error: *** JOB 296507 ON node22 CANCELLED AT 2020-08-10T00:17:33 ***
+slurmstepd: error: *** JOB 296510 ON node22 CANCELLED AT 2020-08-10T00:17:33 ***
+slurmstepd: error: *** JOB 296509 ON node22 CANCELLED AT 2020-08-10T00:17:33 ***
+slurmstepd: error: *** JOB 296506 ON node22 CANCELLED AT 2020-08-10T00:17:33 ***
+slurmstepd: error: *** JOB 296500 ON node21 CANCELLED AT 2020-08-10T00:17:33 ***
+slurmstepd: error: *** JOB 296497 ON node21 CANCELLED AT 2020-08-10T00:17:33 ***
+slurmstepd: error: *** JOB 296496 ON node21 CANCELLED AT 2020-08-10T00:17:33 ***
+slurmstepd: error: *** JOB 296498 ON node21 CANCELLED AT 2020-08-10T00:17:33 ***
