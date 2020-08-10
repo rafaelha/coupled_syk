@@ -14,8 +14,8 @@ job_ID = int(os.environ.get('SLURM_ARRAY_JOB_ID', default=-1))       # job ID
 task_ID = int(os.environ.get('SLURM_ARRAY_TASK_ID', default=-1)) # task ID
 
 # T = 1000
-wmax = 512
-N = 2**25
+wmax = 1024
+N = 2**27
 T = np.pi/wmax * N # T is tmax
 eta_conv = 1/T * 5
 J = 1
