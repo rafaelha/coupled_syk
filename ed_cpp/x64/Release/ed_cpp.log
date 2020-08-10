@@ -102,8 +102,8 @@ C:\Program Files\spectra-0.8.1\include\Spectra\SymEigsBase.h(69): message : see 
               BOpType=Spectra::IdentityBOp
           ]
   Generating code
-  3 of 10064 functions (<0.1%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
-    135 functions had inline decision re-evaluated but remain unchanged
+  4281 of 10410 functions (41.1%) were compiled, the rest were copied from previous compilation.
+    450 functions were new in current compilation
+    480 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
   ed_cpp.vcxproj -> C:\Users\rafae\Desktop\coupled_syk\ed_cpp\x64\Release\ed_cpp.exe

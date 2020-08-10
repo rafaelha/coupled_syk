@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-N = 32
+N = 16
 
 
 overlap_real = np.loadtxt(str(N) + "n_overlap_real.txt", dtype=float, delimiter=', ', skiprows=3)
@@ -28,7 +28,7 @@ plt.colorbar()
 # plt.imshow(np.abs(overlap[0:20,0:20]))
 plt.figure()
 plt.imshow(np.abs(overlap))
-plt.title(str(N) + " Majoranas, J=1, $\mu=0.5$")
+plt.title(str(N) + " Majoranas, J=1, $\mu=0.2$")
 plt.xlabel(r'|n$\rangle$')
 plt.ylabel(r'|m$\rangle$')
 plt.colorbar()
@@ -41,11 +41,10 @@ plt.colorbar()
 plt.figure()
 # plt.plot(ev_syk, '.')
 plt.plot(ev_syk_cpp, '.')
-print(factor)
-
+# print(factor)
 
 plt.figure()
 plt.plot(np.abs(HLRgs)**2)
 plt.title(r'Norm $[(H_L-H_R)|GS\rangle$] = ' + str(np.sum(np.abs(HLRgs)**2)))
 
-print("Couples GS energy: ", np.min(ev))
+# print("Couples GS energy: ", np.min(ev))
