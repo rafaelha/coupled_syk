@@ -47,10 +47,7 @@ def fft(x):
     return fftshift(scipy.fft.ifft(fftshift(x))) * len(x)
 
 xx = []
-kk = -1
 for eta in etas:
-    kk += 1
-
     t = np.arange(-N/2, N/2) / N * T
     # t = np.linspace(-T/2, T/2, N)
     w = np.arange(-N/2, N/2)  * 2 * np.pi / T
@@ -162,14 +159,15 @@ for eta in etas:
         'rhoLR': rhoLR[sel],
         'iterations': i,
         'convergence_x': x,
+        'convergence_xx': xx,
         'alpha': alpha,
         't': t,
-        'GRRg_T': GRRg_t,
-        'GLLg_T': GLLg_t,
-        'GLRg_T': GLRg_t
+        'GRRg_t': GRRg_t,
+        'GLLg_t': GLLg_t,
+        'GLRg_t': GLRg_t
     }
 
-    f1 = open(f'{job_ID}_{task_ID}_{kk}.pickle', 'ab')
+    f1 = open(f'{job_ID}_{task_ID}.pickle', 'ab')
     pickle.dump(res, f1)
     f1.close()
 

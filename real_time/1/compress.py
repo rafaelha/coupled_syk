@@ -39,6 +39,8 @@ for f in files:
 
     w_re = 4*mu**(2/3)/(2*np.pi)
     sel2 = np.logical_and(t>0, t*w_re<10*np.pi)
+    if mu == 0:
+        sel2 = np.logical_and(t>0, t<np.max(t)/10)
 
     rhoRR = data['rhoRR']
     rhoLL = data['rhoLL']
@@ -49,6 +51,8 @@ for f in files:
     t = t[sel2][::10]
 
     sel = np.logical_and(w>=0, w<100*mu**(2/3))
+    if mu == 0:
+        sel = np.logical_and(w>=0, w<10)
 
     w = w[sel]
 
