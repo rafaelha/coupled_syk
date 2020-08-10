@@ -31,7 +31,7 @@ else:
     temp = 2e-4
 beta = 1/temp
 
-etas = [0]
+etas = [1, 0.5, 0.8, 0.3, 0.1, 0, 0.2, 0.4]
 
 alpha = 0.1
 #%%
