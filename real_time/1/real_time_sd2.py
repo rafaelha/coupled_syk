@@ -20,8 +20,8 @@ J = 1
 J = J/np.sqrt(2) # choose same convention as stephan
 mus = np.concatenate([np.linspace(0,0.01,21), np.linspace(0.01,0.1,41)[1:]])
 
-if task_ID == -1:
-    mu = mus[task_ID]
+#if task_ID == -1:
+mu = mus[task_ID]
 
 if mu < 0.01:
     temp = 5e-5

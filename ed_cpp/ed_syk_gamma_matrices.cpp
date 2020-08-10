@@ -17,13 +17,14 @@ using namespace std;
 using namespace std::chrono;
 using namespace Eigen;
 using namespace Spectra;
+using namespace std::literals;
 
 typedef SparseMatrix<complex<double>> sm;
 vector<sm> s;
 
-const int N = 32; // Majorana fermions in total
+const int N = 28; // Majorana fermions in total
 const double J = 1.0;
-const int num_evals = 12;
+const int num_evals = 1;
 const int dimSYK = (1 << N / 4);
 double eta;
 double mu;
@@ -164,14 +165,15 @@ bool check_anticommutation()
 }
 void tic()
 {
-	t0 = high_resolution_clock::now();
+	//t0 = system_clock::now();
 }
 void toc()
 {
-	t1 = high_resolution_clock::now();
-	auto duration = duration_cast<milliseconds>(t1 - t0);
-	cout << "Finished in " << duration.count() * 1e-3 << "s." << endl;
-	t0 = t1;
+	//t1 = system_clock::now();
+	//auto duration = duration_cast<milliseconds>(t1 - t0);
+	//cout << "Finished in " << duration.count() * 1e-3 << "s." << endl;
+	//t0 = t1;
+	cout << "Done." << endl;
 }
 void buildH()
 {
@@ -324,6 +326,7 @@ int main(int argc, char** argv)
 
 
 	cout << endl << "Computing lowest eigenvalue of coupled SYKs... ";
+	cout << endl << "Computing lowest eigenvalue of coupled SYKs... ";
 	eigs();
 	toc();
 	cout << "Lowest Eigenvalues:" << endl << evalues << endl;
@@ -334,9 +337,9 @@ int main(int argc, char** argv)
 
 	overlap();
 
-	_save(overlap_data.real(), "data\\" + to_string(N) + "n" + d_tostr(eta) + "eta" + d_tostr(mu) + "mu_overlap_real.txt");
-	_save((-1i * overlap_data).real(), "data\\" + to_string(N) + "n" + d_tostr(eta) + "eta" + d_tostr(mu) + "mu_overlap_imag.txt");
-	_save(evalues, "data\\" + to_string(N) + "n" + d_tostr(eta) + "eta" + d_tostr(mu) + "mu_energies.txt");
+	_save(overlap_data.real(), "data/" + to_string(N) + "n" + d_tostr(eta) + "eta" + d_tostr(mu) + "mu_overlap_real.txt");
+	_save((-1i * overlap_data).real(), "data/" + to_string(N) + "n" + d_tostr(eta) + "eta" + d_tostr(mu) + "mu_overlap_imag.txt");
+	_save(evalues, "data/" + to_string(N) + "n" + d_tostr(eta) + "eta" + d_tostr(mu) + "mu_energies.txt");
 	//_save(HLRgs.real(), to_string(N) + "n_HLRgs_real.txt");
 	//_save((-1i * HLRgs).real(), to_string(N) + "n_HLRgs_imag.txt");
 	//_save(ev_syk.real(), to_string(N) + "n_ev_syk.txt");

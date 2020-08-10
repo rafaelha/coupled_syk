@@ -3,7 +3,7 @@
 #SBATCH -p nodes # partition (queue)
 #SBATCH -N 1 # number of nodes
 #SBATCH -n 1 # number of cores
-#SBATCH --mem 8000 # memory pool for all cores
+#SBATCH --mem 16000 # memory pool for all cores
 #SBATCH -t 2-20:00 # time (D-HH:MM)
 #SBATCH -o message.out # STDOUT
 #SBATCH -e error.err # STDERR
