@@ -43,8 +43,10 @@ def fft_(x):
 def fft(x):
     return fftshift(scipy.fft.ifft(fftshift(x))) * len(x)
 
-
+kk = -1
 for eta in etas:
+    kk += 1
+
     t = np.arange(-N/2, N/2) / N * T
     # t = np.linspace(-T/2, T/2, N)
     w = np.arange(-N/2, N/2)  * 2 * np.pi / T
@@ -127,26 +129,26 @@ for eta in etas:
         if i % 10 == 0 and x < 1e-9:
             break
 
-res = {
-    'N': N,
-    'wmax': wmax,
-    'T': T,
-    'eta_conv': eta_conv,
-    'temp': temp,
-    'beta': beta,
-    'J': J,
-    'mu': mu,
-    'eta': eta,
-    'rhoRR': rhoRR,
-    'rhoLL': rhoLL,
-    'rhoLR': rhoLR,
-    'iterations': i,
-    'convergence_x': x,
-    'nf': nf,
-    'alpha': alpha
-}
+    res = {
+        'N': N,
+        'wmax': wmax,
+        'T': T,
+        'eta_conv': eta_conv,
+        'temp': temp,
+        'beta': beta,
+        'J': J,
+        'mu': mu,
+        'eta': eta,
+        'rhoRR': rhoRR,
+        'rhoLL': rhoLL,
+        'rhoLR': rhoLR,
+        'iterations': i,
+        'convergence_x': x,
+        'nf': nf,
+        'alpha': alpha
+    }
 
-f1 = open(f'{job_ID}_{task_ID}.pickle', 'ab')
-pickle.dump(res, f1)
-f1.close()
+    f1 = open(f'{job_ID}_{task_ID}_{kk}.pickle', 'ab')
+    pickle.dump(res, f1)
+    f1.close()
 
