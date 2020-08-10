@@ -1,3 +1,5 @@
+#%%
+
 import numpy as np
 import matplotlib.pyplot as plt
 import scipy.fft
@@ -13,7 +15,8 @@ task_ID = int(os.environ.get('SLURM_ARRAY_TASK_ID', default=-1)) # task ID
 
 # T = 1000
 wmax = 1024
-N = 2**25
+wmax = 1024
+N = 2**20
 T = np.pi/wmax * N
 eta_conv = 1/T * 5
 J = 1
@@ -43,6 +46,7 @@ def fft_(x):
 def fft(x):
     return fftshift(scipy.fft.ifft(fftshift(x))) * len(x)
 
+xx = []
 kk = -1
 for eta in etas:
     kk += 1
@@ -85,6 +89,7 @@ for eta in etas:
 
     # %%
 
+
     # perform self-consistency equation
     for i in np.arange(250):
         nRR = dw * fft_(rhoRR * nf)
@@ -111,7 +116,8 @@ for eta in etas:
 
         if i % 10 == 0:
             x = (np.sum(np.abs(rhoRR_-rhoRR)**2) + np.sum(np.abs(rhoLL_-rhoLL)**2) + np.sum(np.abs(rhoLR_-rhoLR)**2)) / N
-            print(i, x, 'sum_rule:', dw * np.sum(rhoRR), dw * np.sum(rhoLL))
+            xx.append(x)
+            print(i, x)#, 'sum_rule:', dw * np.sum(rhoRR), dw * np.sum(rhoLL))
 
         rhoRR = rhoRR * (1-alpha) + alpha * rhoRR_
         rhoLL = rhoLL * (1-alpha) + alpha * rhoLL_
@@ -129,9 +135,21 @@ for eta in etas:
         if i % 10 == 0 and x < 1e-9:
             break
 
+    del rhoRR_
+    del rhoLL_
+    del rhoLR_
+
+    sel2 = np.logical_and(t>0, t*w_re<10*np.pi)
+    t = t[sel2]
+    GRRg_t = (1/np.sqrt(N) * fft_(-1j * ( 1 - nf) * rhoRR))[sel2]
+    GLLg_t = (1/np.sqrt(N) * fft_(-1j * ( 1 - nf) * rhoLL))[sel2]
+    GLRg_t = (1/np.sqrt(N) * fft_(-1j * ( 1 - nf) * rhoLR))[sel2]
+
+    sel = np.logical_and(w>=0, w<100*mu**(2/3))
     res = {
         'N': N,
         'wmax': wmax,
+        'w': w[sel],
         'T': T,
         'eta_conv': eta_conv,
         'temp': temp,
@@ -139,13 +157,16 @@ for eta in etas:
         'J': J,
         'mu': mu,
         'eta': eta,
-        'rhoRR': rhoRR,
-        'rhoLL': rhoLL,
-        'rhoLR': rhoLR,
+        'rhoRR': rhoRR[sel],
+        'rhoLL': rhoLL[sel],
+        'rhoLR': rhoLR[sel],
         'iterations': i,
         'convergence_x': x,
-        'nf': nf,
-        'alpha': alpha
+        'alpha': alpha,
+        't': t,
+        'GRRg_T': GRRg_t,
+        'GLLg_T': GLLg_t,
+        'GLRg_T': GLRg_t
     }
 
     f1 = open(f'{job_ID}_{task_ID}_{kk}.pickle', 'ab')
