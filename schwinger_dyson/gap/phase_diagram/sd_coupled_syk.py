@@ -8,7 +8,7 @@ import sys
 import pickle
 
 etas = np.linspace(0,1.5,64)
-mus = np.linspace(0, 0.3, 21)
+mus = np.linspace(0, 0.3, 41)
 
 temps = np.linspace(0, 0.08, 41)
 temps[0] = 0.00086603
@@ -24,7 +24,7 @@ for mu in mus:
         omegacutoff = N*(np.pi)/beta  # Max cut-off frequency,
         # NOTE: this is fixed by inverse temperature beta
 
-        total_iteration = 500  # number of iterations for each run
+        total_iteration = 120  # number of iterations for each run
         x = 0.06  # mixing of consecutive iterations. (0 means no mixing)
 
         tstep = 2*beta/N
@@ -120,9 +120,9 @@ for mu in mus:
             #S[i] = freeenergy(GLLw[1:N:2], GLRw[1:N:2], SLLw[1:N:2], SLRw[1:N:2], freq[0:N-1:2])
 
             # compare new iteration to old one
-            dRR[i] = diff(GRRt, GRRtn)
-            dLL[i] = diff(GLLt, GLLtn)
-            dLR[i] = diff(GLRt, GLRtn)
+            #dRR[i] = diff(GRRt, GRRtn)
+            #dLL[i] = diff(GLLt, GLLtn)
+            #dLR[i] = diff(GLRt, GLRtn)
 
             # update with newest iteration
             GRRt = (1-x)*GRRt + x*GRRtn
@@ -147,9 +147,9 @@ for mu in mus:
             'GRRt': GRRt[N//2:3*N//4:dd],
             'GLLt': GLLt[N//2:3*N//4:dd],
             'GLRt': GLRt[N//2:3*N//4:dd],
-            'dRR': dRR,
-            'dLL': dLL,
-            'dLR': dLR,
+            #'dRR': dRR,
+            #'dLL': dLL,
+            #'dLR': dLR,
             'total_iterations': total_iteration,
             'x': x,
             'N': N}
