@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --array=0-60
+#SBATCH --array=0-30
 #SBATCH -p nodes # partition (queue)
 #SBATCH -N 1 # number of nodes
 #SBATCH -n 1 # number of cores
