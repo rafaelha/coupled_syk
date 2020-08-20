@@ -10,13 +10,13 @@ import pickle
 etas = np.linspace(0,1.5,64)
 mus = np.linspace(0, 0.3, 21)
 
-temps = np.linspace(0, 0.08, 21)
+temps = np.linspace(0, 0.08, 41)
 temps[0] = 0.00086603
 
 idx = int(sys.argv[1])
 eta = etas[idx]
-for temp in temps:
-    for mu in mus:
+for mu in mus:
+    for temp in temps:
         J = 1  # intra-SYK coupling
         N = 2**18  # number of frequency points (points in Patel's code is N/2)
         beta = 1/temp  # inverse temperature
@@ -138,7 +138,7 @@ for temp in temps:
             GLRt[:N//2] = 0.5 * (GLRt[:N//2] + np.flip(GLRt[N//2:]))
             GLRt[N//2:] = np.flip(GLRt[:N//2])
 
-        dd = 8
+        dd = 8*60
         res = {'eta': eta,
             'beta': beta,
             'mu': mu,
@@ -151,7 +151,8 @@ for temp in temps:
             'dLL': dLL,
             'dLR': dLR,
             'total_iterations': total_iteration,
-            'x': x}
+            'x': x,
+            'N': N}
         f1 = open(str(idx) + '.pickle', 'ab')
         pickle.dump(res, f1)
         f1.close()
