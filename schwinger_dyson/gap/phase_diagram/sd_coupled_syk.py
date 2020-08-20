@@ -15,8 +15,8 @@ temps[0] = 0.00086603
 
 idx = int(sys.argv[1])
 eta = etas[idx]
-for mu in mus:
-    for temp in temps:
+for temp in temps:
+    for mu in mus:
         J = 1  # intra-SYK coupling
         N = 2**18  # number of frequency points (points in Patel's code is N/2)
         beta = 1/temp  # inverse temperature
@@ -24,7 +24,7 @@ for mu in mus:
         omegacutoff = N*(np.pi)/beta  # Max cut-off frequency,
         # NOTE: this is fixed by inverse temperature beta
 
-        total_iteration = 120  # number of iterations for each run
+        total_iteration = 220  # number of iterations for each run
         x = 0.06  # mixing of consecutive iterations. (0 means no mixing)
 
         tstep = 2*beta/N
@@ -87,9 +87,9 @@ for mu in mus:
         SLRw = np.zeros(N, dtype='complex')
 
         S = np.zeros(total_iteration)
-        dLL = np.zeros(total_iteration)
-        dRR = np.zeros(total_iteration)
-        dLR = np.zeros(total_iteration)
+        dLL = []
+        dRR = []
+        dLR = []
 
         for i in np.arange(total_iteration):
             print(i)
@@ -120,9 +120,10 @@ for mu in mus:
             #S[i] = freeenergy(GLLw[1:N:2], GLRw[1:N:2], SLLw[1:N:2], SLRw[1:N:2], freq[0:N-1:2])
 
             # compare new iteration to old one
-            #dRR[i] = diff(GRRt, GRRtn)
-            #dLL[i] = diff(GLLt, GLLtn)
-            #dLR[i] = diff(GLRt, GLRtn)
+            if i%10==0
+                dRR.append(diff(GRRt, GRRtn))
+                dLL.append(diff(GLLt, GLLtn))
+                dLR.append(diff(GLRt, GLRtn))
 
             # update with newest iteration
             GRRt = (1-x)*GRRt + x*GRRtn
@@ -138,7 +139,7 @@ for mu in mus:
             GLRt[:N//2] = 0.5 * (GLRt[:N//2] + np.flip(GLRt[N//2:]))
             GLRt[N//2:] = np.flip(GLRt[:N//2])
 
-        dd = 8*60
+        dd = 8*50
         res = {'eta': eta,
             'beta': beta,
             'mu': mu,
