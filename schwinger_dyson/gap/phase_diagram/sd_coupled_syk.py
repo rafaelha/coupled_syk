@@ -8,10 +8,9 @@ import sys
 import pickle
 
 etas = np.linspace(0,1.5,64)
-mus = np.linspace(0, 0.3, 41)
-mus = [0.05,0.1,0.15,0.2]
+mus = np.linspace(0, 0.3, 21)
 
-temps = np.linspace(0, 0.08, 41)
+temps = np.linspace(0, 0.08, 21)
 temps[0] = 0.00086603
 
 idx = int(sys.argv[1])
@@ -19,7 +18,7 @@ eta = etas[idx]
 for temp in temps:
     for mu in mus:
         J = 1  # intra-SYK coupling
-        N = 2**18  # number of frequency points (points in Patel's code is N/2)
+        N = 2**17  # number of frequency points (points in Patel's code is N/2)
         beta = 1/temp  # inverse temperature
 
         omegacutoff = N*(np.pi)/beta  # Max cut-off frequency,
