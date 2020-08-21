@@ -25,7 +25,7 @@ for temp in temps:
         omegacutoff = N*(np.pi)/beta  # Max cut-off frequency,
         # NOTE: this is fixed by inverse temperature beta
 
-        total_iteration = 400  # number of iterations for each run
+        total_iteration = 2000  # number of iterations for each run
         x = 0.03  # mixing of consecutive iterations. (0 means no mixing)
 
         tstep = 2*beta/N
