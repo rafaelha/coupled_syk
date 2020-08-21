@@ -9,6 +9,7 @@ import pickle
 
 etas = np.linspace(0,1.5,64)
 mus = np.linspace(0, 0.3, 41)
+mus = [0.05,0.1,0.15,0.2]
 
 temps = np.linspace(0, 0.08, 41)
 temps[0] = 0.00086603
@@ -24,8 +25,8 @@ for temp in temps:
         omegacutoff = N*(np.pi)/beta  # Max cut-off frequency,
         # NOTE: this is fixed by inverse temperature beta
 
-        total_iteration = 170  # number of iterations for each run
-        x = 0.06  # mixing of consecutive iterations. (0 means no mixing)
+        total_iteration = 400  # number of iterations for each run
+        x = 0.03  # mixing of consecutive iterations. (0 means no mixing)
 
         tstep = 2*beta/N
         fstep = 2*np.pi/N
