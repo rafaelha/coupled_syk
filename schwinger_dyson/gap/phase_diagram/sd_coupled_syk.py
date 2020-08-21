@@ -24,7 +24,7 @@ for temp in temps:
         omegacutoff = N*(np.pi)/beta  # Max cut-off frequency,
         # NOTE: this is fixed by inverse temperature beta
 
-        total_iteration = 220  # number of iterations for each run
+        total_iteration = 250  # number of iterations for each run
         x = 0.06  # mixing of consecutive iterations. (0 means no mixing)
 
         tstep = 2*beta/N
@@ -120,7 +120,7 @@ for temp in temps:
             #S[i] = freeenergy(GLLw[1:N:2], GLRw[1:N:2], SLLw[1:N:2], SLRw[1:N:2], freq[0:N-1:2])
 
             # compare new iteration to old one
-            if i%10==0
+            if i%10==0:
                 dRR.append(diff(GRRt, GRRtn))
                 dLL.append(diff(GLLt, GLLtn))
                 dLR.append(diff(GLRt, GLRtn))
@@ -148,9 +148,9 @@ for temp in temps:
             'GRRt': GRRt[N//2:3*N//4:dd],
             'GLLt': GLLt[N//2:3*N//4:dd],
             'GLRt': GLRt[N//2:3*N//4:dd],
-            #'dRR': dRR,
-            #'dLL': dLL,
-            #'dLR': dLR,
+            'dRR': dRR,
+            'dLL': dLL,
+            'dLR': dLR,
             'total_iterations': total_iteration,
             'x': x,
             'N': N}
