@@ -128,7 +128,7 @@ def solveSD(mu, eta, temp = 0.00086603, N=2**17, total_iteration = 4000):
         GLRt[:N//2] = 0.5 * (GLRt[:N//2] + np.flip(GLRt[N//2:]))
         GLRt[N//2:] = np.flip(GLRt[:N//2])
 
-        if len(dLL) > 20 and np.mean(np.abs(np.diff(dLL)[-10:])) < 1e-15:
+        if len(dLL) > 50 and np.mean(np.abs(np.diff(dLL)[-30:])) < 1e-17:
             break
 
     dd = 1

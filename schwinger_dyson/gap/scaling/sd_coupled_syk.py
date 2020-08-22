@@ -141,21 +141,32 @@ for temp in temps:
             if len(dLL) > 50 and np.mean(np.abs(np.diff(dLL)[-40:])) < 1e-17:
                 break
 
-        dd = 8*30
         tau = tau[N//2:3*N//4],
         w = freq[0:N-1:2] / tstep,
+
+        L = len(w)
+        datapoints = 500
+        logspace=np.logspace(0,np.log(L)/np.log(10),datapoints, dtype=int)
+        linspace=np.linspace(0,L,datapoints, dtype=int)
+        sel = np.unique(np.concatenate([logspace, linspace]))
+
+        L = len(tau)
+        logspace=np.logspace(0,np.log(L)/np.log(10),datapoints, dtype=int)
+        linspace=np.linspace(0,L,datapoints, dtype=int)
+        sel_tau = np.unique(np.concatenate([logspace, linspace]))
+
         res = {'eta': eta,
             'beta': beta,
             'mu': mu,
             'J': J,
-            'tau': tau,
-            'GRRt': GRRt[N//2:3*N//4],
-            'GLLt': GLLt[N//2:3*N//4],
-            'GLRt': GLRt[N//2:3*N//4],
-            'w': w,
-            'GRRw': GRRw[1:N:2],
-            'GLLw': GLLw[1:N:2],
-            'GLRw': GLRw[1:N:2],
+            'tau': tau[sel_tau],
+            'GRRt': GRRt[N//2:3*N//4][sel_tau],
+            'GLLt': GLLt[N//2:3*N//4][sel_tau],
+            'GLRt': GLRt[N//2:3*N//4][sel_tau],
+            'w': fftshift(w)[sel],
+            'GRRw': fftshift(GRRw[1:N:2])[sel],
+            'GLLw': fftshift(GLLw[1:N:2])[sel],
+            'GLRw': fftshift(GLRw[1:N:2])[sel],
             'dRR': dRR,
             'dLL': dLL,
             'dLR': dLR,
