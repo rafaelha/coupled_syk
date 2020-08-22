@@ -12,7 +12,8 @@ mus = np.linspace(0, 1, 101)
 
 temps = [0.00086603]
 
-idx = int(sys.argv[1])
+# idx = int(sys.argv[1])
+idx = 0
 eta = etas[idx]
 for temp in temps:
     for mu in mus:
@@ -141,8 +142,8 @@ for temp in temps:
             if len(dLL) > 50 and np.mean(np.abs(np.diff(dLL)[-40:])) < 1e-17:
                 break
 
-        tau = tau[N//2:3*N//4],
-        w = freq[0:N-1:2] / tstep,
+        tau = tau[N//2:3*N//4]
+        w = freq[0:N-1:2] / tstep
 
         L = len(w)-1
         datapoints = 500
