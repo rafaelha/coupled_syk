@@ -23,7 +23,7 @@ for temp in temps:
         omegacutoff = N*(np.pi)/beta  # Max cut-off frequency,
         # NOTE: this is fixed by inverse temperature beta
 
-        total_iteration = 4000  # number of iterations for each run
+        total_iteration = 40  # number of iterations for each run
         x = 0.03  # mixing of consecutive iterations. (0 means no mixing)
 
         tstep = 2*beta/N
@@ -144,16 +144,16 @@ for temp in temps:
         tau = tau[N//2:3*N//4],
         w = freq[0:N-1:2] / tstep,
 
-        L = len(w)
+        L = len(w)-1
         datapoints = 500
         logspace=np.logspace(0,np.log(L)/np.log(10),datapoints, dtype=int)
         linspace=np.linspace(0,L,datapoints, dtype=int)
-        sel = np.unique(np.concatenate([logspace, linspace]))
+        sel = np.unique(np.concatenate([logspace, linspace])).astype(int)
 
-        L = len(tau)
+        L = len(tau)-1
         logspace=np.logspace(0,np.log(L)/np.log(10),datapoints, dtype=int)
         linspace=np.linspace(0,L,datapoints, dtype=int)
-        sel_tau = np.unique(np.concatenate([logspace, linspace]))
+        sel_tau = np.unique(np.concatenate([logspace, linspace])).astype(int)
 
         res = {'eta': eta,
             'beta': beta,
