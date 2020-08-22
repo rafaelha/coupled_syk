@@ -12,8 +12,7 @@ mus = np.linspace(0, 1, 101)
 
 temps = [0.00086603]
 
-# idx = int(sys.argv[1])
-idx = 0
+idx = int(sys.argv[1])
 eta = etas[idx]
 for temp in temps:
     for mu in mus:
@@ -24,7 +23,7 @@ for temp in temps:
         omegacutoff = N*(np.pi)/beta  # Max cut-off frequency,
         # NOTE: this is fixed by inverse temperature beta
 
-        total_iteration = 40  # number of iterations for each run
+        total_iteration = 4000  # number of iterations for each run
         x = 0.03  # mixing of consecutive iterations. (0 means no mixing)
 
         tstep = 2*beta/N
@@ -139,7 +138,7 @@ for temp in temps:
             GLRt[:N//2] = 0.5 * (GLRt[:N//2] + np.flip(GLRt[N//2:]))
             GLRt[N//2:] = np.flip(GLRt[:N//2])
 
-            if len(dLL) > 50 and np.mean(np.abs(np.diff(dLL)[-40:])) < 1e-17:
+            if len(dLL) > 50 and np.mean(np.abs(np.diff(dLL)[-40:])) < 1e-18:
                 break
 
         tau = tau[N//2:3*N//4]
