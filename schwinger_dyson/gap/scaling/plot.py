@@ -259,19 +259,19 @@ plt.plot(x, alpha*((1-x**2)/(1-etaprime**2))**(1/1.6))
 # plt.legend()
 
 # %%
-from scipy.fftpack import fftshift as fs
 def select(eta, mu):
     eta = etas[np.argmin(np.abs(etas-eta))]
     mu = mus[np.argmin(np.abs(mus-mu))]
     r = result[(np.logical_and(etas==eta,mus==mu)).argmax()]
 
     return r['tau'], r['GRRt'], r['GLLt'], r['GLRt'],\
-         fs(r['w']), fs(r['GRRw']), fs(r['GLLw']), fs(r['GLRw']), r, r['eta'], r['mu']
+         r['w'], r['GRRw'], r['GLLw'], r['GLRw'], r, r['eta'], r['mu']
 
 
+num = 4
 eta = 1.5 # use this solution to model the other one
-eta_ = 1.1 # model this eta
-mu = 0.25
+mu = 0.3
+eta_ = 1.05 # model this eta
 plt.figure(1)
 plt.clf()
 
@@ -279,39 +279,52 @@ print('eta:',eta, ', mu: ', mu)
 tau, GRRt, GLLt, GLRt, w, GRRw, GLLw, GLRw, data, eta, mu = select(eta,mu)
 print('closest eta:',eta, ', closest mu: ', mu)
 
-mu_ = ( abs(1-eta_**2)/abs(1-eta**2) )**(1/4) * mu #!!!!!!!!
+mu_ = ( abs(1-eta_**2)/abs(1-eta**2) )**(1/4) * mu
 # mu_ = mu
 
 print('eta_:',eta_, ', mu_: ', mu_)
 tau, GRRt_, GLLt_, GLRt_, w, GRRw_, GLLw_, GLRw_, data_, eta_, mu_ = select(eta_,mu_)
 print('closest eta_:',eta_, ', closest mu_: ', mu_)
 
-plt.loglog(tau, np.abs(GRRt_))
-plt.plot(tau, np.abs(GRRt * np.sqrt((1+eta)/(1+eta_))), 'r--')
-plt.plot(tau,1/np.sqrt(1+eta_) * 1/(8*np.pi)**(1/4) / np.abs(tau)**(1/2), 'k--')
+plt.loglog(tau, np.abs(GRRt_), 'blue', label='$G_{RR}(\\tilde{\eta},\\tilde{\mu})$')
+plt.plot(tau, np.abs(GRRt * np.sqrt(abs(1-eta)/abs(1-eta_))), 'r--', label='$G_{RR}(\eta,\mu)\sqrt{\\frac{1-\eta}{1-\\tilde{\eta}}}$')
+plt.plot(tau,1/np.sqrt(abs(1-eta_)) * 1/(8*np.pi)**(1/4) / np.abs(tau)**(1/2), 'k--', label='SYK analyical')
 
 
-plt.plot(tau, np.abs(GLLt_))
-plt.plot(tau, np.abs(GLLt * np.sqrt(abs(1-eta)/abs(1-eta_))), 'r--')
-plt.plot(tau,1/np.sqrt(abs(1-eta_)) * 1/(8*np.pi)**(1/4) / np.abs(tau)**(1/2), 'k--')
+plt.plot(tau, np.abs(GLLt_), 'orange', label='$G_{LL}(\\tilde{\eta},\\tilde{\mu})$')
+plt.plot(tau, np.abs(GLLt * np.sqrt(abs(1+eta)/abs(1+eta_))), 'g--', label='$G_{LL}(\eta,\mu)\sqrt{\\frac{1+\eta}{1+\\tilde{\eta}}}$')
+plt.plot(tau,1/np.sqrt(abs(1+eta_)) * 1/(8*np.pi)**(1/4) / np.abs(tau)**(1/2), 'k--')
 
-# plt.loglog(tau, np.abs(GLRt_))
+# plt.plot(tau, np.abs(GLRt_))
 # plt.plot(tau, np.abs(GLRt * ((abs(1-eta**2))/(abs(1-eta_**2)))**(1/4)), 'r--')
-
+plt.xlabel('$t$')
+plt.ylabel('$G(\\tau)$')
+plt.title(f'$(\eta={np.round(eta,3)},\mu={mu})  - ' + '(\\tilde{\\eta}='+str(np.round(eta_,3))+',\\tilde{\mu}='+str(mu_)+')$')
+plt.legend()
+plt.savefig(f'{num}a.pdf')
+plt.tight_layout()
 #w
 plt.figure(2)
 plt.clf()
-plt.loglog(w, np.abs(GRRw_),'.-')
-plt.plot(w, np.abs(GRRw * np.sqrt((1-eta)/(1-eta_))), 'r--')
+plt.loglog(w, np.abs(GRRw_),'blue')
+plt.loglog(w, np.abs(GLLw_),'orange')
+plt.plot(w, np.abs(GRRw * np.sqrt(abs((1-eta))/abs(1-eta_))), 'r--')
 # plt.plot(w,abs(1/np.sqrt(abs(1-eta_)) * 1/(8*np.pi)**(1/4) \
     # * np.sqrt(np.pi) * (1j*w)**(1/2)), 'k--')
 
-plt.plot(w, np.abs(GLLw_))
-plt.plot(w, np.abs(GLLw * np.sqrt(abs(1+eta)/abs(1+eta_))), 'r--')
+# plt.plot(w, np.abs(GLLw_))
+# plt.plot(w, np.real(GLLw_))
+# plt.plot(w, np.imag(GLLw_))
+plt.plot(w, np.abs(GLLw * np.sqrt(abs(1+eta)/abs(1+eta_))), 'g--')
 
 plt.xlabel('$\omega_n$')
-plt.ylabel('$G$')
+plt.ylabel('$|G(\omega_n)|$')
+plt.tight_layout()
+plt.savefig(f'{num}b.pdf')
 
 #%%
-# %%
-a=np.logspace(0,np.log(300)/np.log(10),100, dtype=int)
+
+# plt.plot(w, np.abs(GLLw_))
+plt.plot(w, np.real(GLLw_))
+plt.plot(w, np.imag(GLLw_))
+plt.xlim((-30,30))
