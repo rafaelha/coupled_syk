@@ -1,0 +1,4 @@
+sd_coupled_syk.py:57: RuntimeWarning: divide by zero encountered in log
+  return np.linalg.norm(np.log(np.abs(a[z]))-np.log(np.abs(b[z])))/N
+sd_coupled_syk.py:57: RuntimeWarning: divide by zero encountered in log
+  return np.linalg.norm(np.log(np.abs(a[z]))-np.log(np.abs(b[z])))/N

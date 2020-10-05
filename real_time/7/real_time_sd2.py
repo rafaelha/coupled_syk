@@ -20,7 +20,7 @@ T = np.pi/wmax * N # T is tmax
 eta_conv = 1/T * 5
 J = 1
 J = J/np.sqrt(2) # choose same convention as stephan
-mus = np.concatenate([np.linspace(0,0.01,11), np.linspace(0.01,0.1,6)[1:]])
+mus = np.linspace(0,0.01,11)
 
 #if task_ID == -1:
 # mu = mus[task_ID]
