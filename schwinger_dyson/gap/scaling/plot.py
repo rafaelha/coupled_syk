@@ -89,6 +89,7 @@ plt.figure('res')
 plt.clf()
 
 
+
 mu_unique = np.unique(mus)
 eta_unique = np.unique(etas)
 n_crit = np.zeros(len(mu_unique))
@@ -189,7 +190,6 @@ def mu_scaling(eta):
     plt.tight_layout()
 
     return c.slope
-
 
 plot_eta_crit()
 plt.figure('res')
@@ -310,8 +310,7 @@ plt.loglog(w, np.abs(GRRw_),'blue')
 plt.loglog(w, np.abs(GLLw_),'orange')
 plt.plot(w, np.abs(GRRw * np.sqrt(abs((1-eta))/abs(1-eta_))), 'r--')
 # plt.plot(w,abs(1/np.sqrt(abs(1-eta_)) * 1/(8*np.pi)**(1/4) \
-    # * np.sqrt(np.pi) * (1j*w)**(1/2)), 'k--')
-
+    # * np.sqrt(np.pi) * (1j*w)**(1/2)), 'k--') 
 # plt.plot(w, np.abs(GLLw_))
 # plt.plot(w, np.real(GLLw_))
 # plt.plot(w, np.imag(GLLw_))
@@ -328,3 +327,35 @@ plt.savefig(f'{num}b.pdf')
 plt.plot(w, np.real(GLLw_))
 plt.plot(w, np.imag(GLLw_))
 plt.xlim((-30,30))
+
+#%%
+
+tau, GRRt, GLLt, GLRt, w, GRRw, GLLw, GLRw, data, eta, mu = select(0.3,0.2)
+print(eta,mu)
+
+plt.plot(w,np.real(GLLw/GLRw), label='Re $G_{LL}/G_{LR}$')
+plt.plot(w,np.imag(GLLw/GLRw), label='Im $G_{LL}/G_{LR}$')
+plt.xlim((-5,5))
+a = np.max(np.abs(GLLw/GLRw)[np.abs(w)<5])
+plt.ylim((-a,a))
+
+plt.plot(w,-w/mu, 'k--', label='$-\omega/\mu$')
+plt.legend()
+plt.xlabel('$\omega$')
+plt.title(f'$\eta={eta}, \mu={mu}$')
+
+plt.figure()
+plt.plot(w,GLLw.real, label='Re $G_{LL}$')
+plt.plot(w,GLLw.imag, label='Im $G_{LL}$')
+plt.ylabel('$G_{LL}(\omega)$')
+plt.xlabel('$\omega$')
+plt.title(f'$\eta={eta}, \mu={mu}$')
+plt.legend()
+
+plt.figure()
+plt.plot(w,GLRw.real, label='Re $G_{LR}$')
+plt.plot(w,GLRw.imag, label='Im $G_{LR}$')
+plt.ylabel('$G_{LR}(\omega)$')
+plt.xlabel('$\omega$')
+plt.title(f'$\eta={eta}, \mu={mu}$')
+plt.legend()

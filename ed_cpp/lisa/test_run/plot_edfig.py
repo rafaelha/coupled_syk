@@ -53,7 +53,7 @@ for i in np.arange(19):
     plt.plot(etas,spectrum[::2,i,:].T,c='black')
     plt.axvline(1,c='black',lw=0.1)
     plt.title(f'$\mu={str(np.round(mus[i],2))}$')
-    plt.savefig(f'spectrum_{i}.pdf')
+    # plt.savefig(f'spectrum_{i}.pdf')
 
 #%% line not straight
 i = 18
@@ -63,7 +63,7 @@ plt.axvline(1,c='black',lw=0.1)
 plt.title(f'$\mu={str(np.round(mus[i],2))}$')
 plt.plot([0,2],[np.min(spectrum[:,i,0])]*2)
 plt.ylim((-3.36,-3.34))
-plt.savefig(f'spectrum_{i}_zoom.pdf')
+# plt.savefig(f'spectrum_{i}_zoom.pdf')
 
 # %%
 
@@ -110,7 +110,7 @@ plt.xlim((0,0.35))
 plt.legend()
 plt.xlabel('$\mu$')
 plt.ylabel('Overlap')
-plt.savefig('overlap.pdf')
+# plt.savefig('overlap.pdf')
 
 # %% plot mu-beta relation
 for i in [0,30,31,32,30,31,32,33,34,35,36,37,38,39]:
@@ -121,7 +121,7 @@ plt.legend(loc='upper right')
 plt.xlabel('$\mu$')
 plt.ylabel(r'$1/\beta$')
 # plt.ylim((0,50))
-plt.savefig('mu_beta_relation.pdf')
+# plt.savefig('mu_beta_relation.pdf')
 
 #%% plot phase diagram
 Y, X = np.meshgrid(mus[:-1],etas)
@@ -137,4 +137,4 @@ plt.ylabel(f'$\mu$')
 [eeta, mmu] = np.loadtxt('wormhole_mu_eta16.dat')
 plt.plot(eeta, mmu, '.', label='ED16')
 plt.legend()
-plt.savefig('ed16_32.pdf')
+# plt.savefig('ed16_32.pdf')

@@ -10,7 +10,7 @@ import pickle
 
 
 def solveSD(mu, eta, temp = 0.00086603, N=2**17, total_iteration = 4000):
-    N = 2**17  # number of frequency points (points in Patel's code is N/2)
+    N = 2**13  # number of frequency points (points in Patel's code is N/2)
     beta = 1/temp  # inverse temperature
     J = 1
 
@@ -82,8 +82,8 @@ def solveSD(mu, eta, temp = 0.00086603, N=2**17, total_iteration = 4000):
 
     for i in np.arange(total_iteration):
         # self consistent iteration
-        SRRt = (1-eta)**2 * 2*(J**2)*GRRt*GRRt*GRRt #changed sign
-        SLLt = (1+eta)**2 * 2*(J**2)*GLLt*GLLt*GLLt #changed sign
+        SRRt = (1-eta)**2 * 2*(J**2)*GRRt*GRRt*GRRt
+        SLLt = (1+eta)**2 * 2*(J**2)*GLLt*GLLt*GLLt
         SLRt = (1-eta**2) * 2*(J**2)*GLRt*GLRt*GLRt
 
         SRRw = ft(SRRt)
@@ -108,7 +108,7 @@ def solveSD(mu, eta, temp = 0.00086603, N=2**17, total_iteration = 4000):
         #S[i] = freeenergy(GLLw[1:N:2], GLRw[1:N:2], SLLw[1:N:2], SLRw[1:N:2], freq[0:N-1:2])
 
         # compare new iteration to old one
-        if i%10==0:
+        if i%100==0:
             print(i, 'of', total_iteration)
             dRR.append(diff(GRRt, GRRtn))
             dLL.append(diff(GLLt, GLLtn))
@@ -163,8 +163,8 @@ eta_ = 1.1
 mu = 0.1
 mu_ = ( abs(1-eta_**2)/abs(1-eta**2) )**(1/4) * mu
 # mu_ = mu
-res = solveSD(mu, eta, total_iteration=2000)
-res_ = solveSD(mu_, eta_, total_iteration=2000)
+res = solveSD(mu, eta, total_iteration=500)
+res_ = solveSD(mu_, eta_, total_iteration=500)
 
 #%%
 plt.figure(1)
@@ -188,8 +188,8 @@ plt.figure(2)
 plt.clf()
 plt.loglog(w, np.abs(GRRw_))
 plt.plot(w, np.abs(GRRw * np.sqrt((1-eta)/(1-eta_))), 'r--')
-plt.plot(w,abs(1/np.sqrt(abs(1-eta_)) * 1/(8*np.pi)**(1/4) \
-    * np.sqrt(np.pi) * (1j*w)**(1/2)), 'k--')
+# plt.plot(w,abs(1/np.sqrt(abs(1-eta_)) * 1/(8*np.pi)**(1/4) \
+    # * np.sqrt(np.pi) * (1j*w)**(1/2)), 'k--')
 
 plt.plot(w, np.abs(GLLw_))
 plt.plot(w, np.abs(GLLw * np.sqrt(abs(1+eta)/abs(1+eta_))), 'r--')
