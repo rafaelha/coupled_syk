@@ -108,3 +108,34 @@ plt.plot(etas, data[i], '.-', label=f'$\mu={mus[i]}$')
 plt.legend()
 plt.xlabel('$\eta$')
 plt.ylabel('$E_{gap}$')
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#%% save the data into a separate file
+# res = {
+#     'gaps': data,
+#     'mus': mus,
+#     'etas': etas,
+#     'beta': result[0]['beta'],
+#     'J': result[0]['J'],
+#     'N': result[0]['N']
+# }
+# f1 = open('data.pickle', 'ab')
+# pickle.dump(res, f1)
+# f1.close()
