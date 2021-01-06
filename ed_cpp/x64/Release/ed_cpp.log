@@ -1,5 +1,5 @@
 ﻿  ed_syk_gamma_matrices.cpp
-C:\Users\rafae\Desktop\coupled_syk\ed_cpp\ed_syk_gamma_matrices.cpp(223,12): warning C4244: 'initializing': conversion from 'Spectra::SymEigsBase<Scalar,7,OpType,Spectra::IdentityBOp>::Index' to 'int', possible loss of data
+C:\Users\rafae\Desktop\coupled_syk\ed_cpp\ed_syk_gamma_matrices.cpp(227,12): warning C4244: 'initializing': conversion from 'Spectra::SymEigsBase<Scalar,7,OpType,Spectra::IdentityBOp>::Index' to 'int', possible loss of data
           with
           [
               Scalar=double,
@@ -29,7 +29,7 @@ C:\Program Files\spectra-0.8.1\include\Spectra\SymEigsSolver.h(143): message : s
               Scalar=double,
               OpType=Spectra::SparseSymMatProd<double,1,0,int>
           ]
-C:\Users\rafae\Desktop\coupled_syk\ed_cpp\ed_syk_gamma_matrices.cpp(220): message : see reference to class template instantiation 'Spectra::SymEigsSolver<double,7,Spectra::SparseSymMatProd<double,1,0,int>>' being compiled
+C:\Users\rafae\Desktop\coupled_syk\ed_cpp\ed_syk_gamma_matrices.cpp(224): message : see reference to class template instantiation 'Spectra::SymEigsSolver<double,7,Spectra::SparseSymMatProd<double,1,0,int>>' being compiled
 C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\VC\Tools\MSVC\14.24.28314\include\chrono(632): message : see reference to class template instantiation 'std::chrono::duration<double,std::ratio<1,1>>' being compiled
 C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\VC\Tools\MSVC\14.24.28314\include\chrono(178): message : see reference to class template instantiation 'std::chrono::duration<__int64,std::nano>' being compiled
 C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\VC\Tools\MSVC\14.24.28314\include\chrono(610): message : see reference to class template instantiation 'std::chrono::time_point<std::chrono::steady_clock,std::chrono::nanoseconds>' being compiled
@@ -102,8 +102,8 @@ C:\Program Files\spectra-0.8.1\include\Spectra\SymEigsBase.h(69): message : see 
               BOpType=Spectra::IdentityBOp
           ]
   Generating code
-  4281 of 10410 functions (41.1%) were compiled, the rest were copied from previous compilation.
-    450 functions were new in current compilation
-    480 functions had inline decision re-evaluated but remain unchanged
+  94 of 10404 functions ( 0.9%) were compiled, the rest were copied from previous compilation.
+    52 functions were new in current compilation
+    166 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
   ed_cpp.vcxproj -> C:\Users\rafae\Desktop\coupled_syk\ed_cpp\x64\Release\ed_cpp.exe

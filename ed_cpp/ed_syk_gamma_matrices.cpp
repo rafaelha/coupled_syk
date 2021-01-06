@@ -13,6 +13,8 @@
 #include <random>
 #include <fstream>
 
+#define M_PI 3.14159265359
+
 using namespace std;
 using namespace std::chrono;
 using namespace Eigen;
@@ -22,7 +24,7 @@ using namespace std::literals;
 typedef SparseMatrix<complex<double>> sm;
 vector<sm> s;
 
-const int N = 28; // Majorana fermions in total
+const int N = 16; // Majorana fermions in total
 const double J = 1.0;
 const int num_evals = 1;
 const int dimSYK = (1 << N / 4);
@@ -242,20 +244,34 @@ void overlap()
 {
 	cout << "Norm of gs: " << gs.norm() << endl;
 	overlap_data = MatrixXcd(dimSYK, dimSYK);
+	double first = -10;
+	double total = 0;
 	for (int n = 0; n < dimSYK; n++)
 	{
 		for (int m = 0; m < dimSYK; m++)
 		{
 			MatrixXcd nn = vecs_syk.col(n);
 			VectorXcd mm = vecs_syk.col(m);
-			VectorXcd nm = kroneckerProduct(nn, mm);
+			VectorXcd nm = kroneckerProduct(nn, mm.conjugate());
+			//VectorXcd nm = kroneckerProduct(nn, mm);
 			//cout << "Norm of nm: " << nm.norm() << endl;
 			auto v = nm.dot(gs);
 			//cout << v.real() * v.real() + v.imag() * v.imag() << "\t";
 			overlap_data(n, m) = v;
+			double phase = arg(v) / M_PI;
+			total += abs(v);
+			//double phase = atan(v.imag()/v.real()) / M_PI;
+			if (first == -10) first = phase;
+
+			if (n == m)
+			{
+				//cout << v << " " << "abs,phase:" << "\t" << abs(v) << "\t" << phase - first << endl;
+				cout << abs(v) << "\t" << phase - first << endl;
+			}
 		}
 		//cout << endl;
 	}
+	cout << "total: " << total;
 }
 string d_tostr(double x)
 {
@@ -284,7 +300,7 @@ void _save(MatrixXd src, string pathAndName)
 int main(int argc, char** argv)
 {
 	eta = 0;
-	mu = 0.2;
+	mu = 0.6;
 	if (argc > 1) eta = atof(argv[1]);
 	if (argc > 2) mu = atof(argv[2]);
 
